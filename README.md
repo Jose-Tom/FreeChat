@@ -1,8 +1,8 @@
 # FreeChat 🔐💬
 
-FreeChat is a **1-to-1 end-to-end encrypted web chat application** built as a learning project to deeply understand **WebSockets, real-time messaging, Redis Pub/Sub, and client-side encryption**.
+FreeChat is a **1-to-1 end-to-end encrypted web chat application** built as a learning project to deeply understand **real-time messaging, Socket.IO, Redis Pub/Sub, and client-side encryption**.
 
-This project is intentionally built as a **monolith** using **Python** for the backend and **HTML/CSS/JavaScript** for the frontend, with a strong focus on **system design, tradeoffs, and failure handling**.
+This project is intentionally built as a **monolith** using **Node.js** for the backend and **HTML/CSS/JavaScript** for the frontend, with a strong focus on **system design, tradeoffs, and failure handling**.
 
 > ⚠️ This is **not a production-ready secure messaging app**.  
 > Cryptography and security choices are simplified and made strictly for learning purposes.
@@ -12,11 +12,13 @@ This project is intentionally built as a **monolith** using **Python** for the b
 ## 🎯 Why FreeChat?
 
 I built FreeChat to:
-- Implement **WebSockets & real-time systems** is a real world use case.
-- Learn **Python backend development** coming from a Go background
-- Use **Redis for real infrastructure**, not just caching
-- Understand **end-to-end encryption** practically
-- Train myself to confidently jump into **unfamiliar technologies**
+- Implement **real-time chat systems** using Socket.IO in a real-world use case
+- Learn **Node.js backend development** with limited prior experience
+- Use **Redis as real infrastructure**, not just a cache
+- Understand **end-to-end encryption** from a practical perspective
+- Design and reason about **stateful, event-driven systems**
+- Train myself to confidently jump into **unfamiliar technologies by building**
+
 ---
 
 ## 🏗 Architecture Overview
@@ -25,14 +27,14 @@ I built FreeChat to:
 
 Browser
 ├─ HTTP (Auth, User Profiles)
-├─ WebSocket (Real-time Messaging)
+├─ Socket.IO (Real-time Messaging)
 └─ Client-side Encryption
 
-FastAPI (Monolith)
+Node.js (Express Monolith)
 ├─ REST APIs
-├─ WebSocket Gateway
+├─ Socket.IO Server
 ├─ Redis (Pub/Sub, Presence)
-└─ PostgreSQL (Encrypted Data Storage)
+└─ PostgreSQL (Encrypted Message Storage)
 
 
 ---
@@ -40,9 +42,9 @@ FastAPI (Monolith)
 ## 🧩 Tech Stack
 
 ### Backend
-- **Python**
-- **FastAPI**
-- **WebSockets**
+- **Node.js**
+- **Express**
+- **Socket.IO**
 - **PostgreSQL**
 - **Redis**
 
@@ -54,7 +56,4 @@ FastAPI (Monolith)
 ### Security / Crypto
 - Client-side encryption
 - Public/private key pairs
-- Encrypted message payloads only stored on server
-
-
-
+- Encrypted message payloads only stored on the server

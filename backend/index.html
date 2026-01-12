@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FreeChat Socket Test</title>
+  </head>
+  <body>
+    <h2>FreeChat Socket.IO Test</h2>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script>
+      const socket = io("http://localhost:3000");
+
+      socket.on("connect", () => {
+        console.log("Connected:", socket.id);
+      });
+
+      socket.on("chat:message", (msg) => {
+        console.log("Echo:", msg);
+      });
+
+      socket.emit("chat:message", "Hello FreeChat");
+    </script>
+  </body>
+</html>
